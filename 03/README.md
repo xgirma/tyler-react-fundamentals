@@ -118,7 +118,9 @@ ReactDOM.render(
 ## Array or iterator should have a unique "key" prop.
 *Warning:* Each child in an array or iterator should have a unique "key" prop.
 
-Whenever you map on a list you need to give each item a `unique key`. Having a key helps React to track which item added and/or removed. 
+Whenever you map on a list you need to give each item a `unique key`. 
+
+Having a key helps React to track which item added and/or removed. 
 
 ```javascript
 const React = require('react');
