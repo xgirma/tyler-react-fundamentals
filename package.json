@@ -6,7 +6,10 @@
   "scripts": {
     "start1": "webpack --config webpack.config.prop.1.js",
     "start2": "webpack --config webpack.config.prop.2.js",
-    "start3": "webpack --config webpack.config.prop.3.js"
+    "start3": "webpack --config webpack.config.prop.3.js",
+    "start4": "webpack --config webpack.config.prop.4.js",
+    "start5": "webpack --config webpack.config.prop.5.js",
+    "start6": "webpack --config webpack.config.prop.6.js"
   },
   "babel": {
     "presets": [
