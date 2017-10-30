@@ -1,11 +1,12 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const CleanWebpackPlugin = require('clean-webpack-plugin');
 
 module.exports = {
-    entry: './app/index.js',
+    entry: './04/prop-type-2/index.js',
     output: {
-        path: path.resolve(__dirname, 'dist'),
-        filename: 'index_bundle.js'
+        path: path.resolve(__dirname, 'dist/prop-type-2'),
+        filename: 'prop_type_2_bundle.js'
     },
     module: {
         rules: [
@@ -14,8 +15,9 @@ module.exports = {
         ]
     },
     plugins: [
+        new CleanWebpackPlugin(['dist']),
         new HtmlWebpackPlugin({
-            template: 'app/index.html'
+            template: './04/prop-type-2/index.html'
         })
     ]
-}
+};
