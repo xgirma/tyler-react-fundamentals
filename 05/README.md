@@ -155,3 +155,115 @@ newFunction();
 // My name is Stacy and I know Ruby and Python
 ```
 
+## new Binding
+We are creating a constructor function, to indicate that we start the function name with *capital letter*.
+
+> when the `new` key word is used JavaScript will create a new object for us and save it as `this={}`. It is a little bit
+fancier than a regular object. 
+
+```javascript
+const Animal = function(color, name, type){
+    this.color = color;
+    this.name = name;
+    this.type = type;
+};
+
+let zebra = new Animal('black and white', 'Zorro', 'Zebra');
+console.log(zebra.color, ' ', zebra.name, ' ', zebra.type);
+let donkey = new Animal('brown', 'tommy', 'Donkey');
+console.log(donkey.color, ' ', donkey.name, ' ', donkey.type);
+
+// black and white   Zorro   Zebra
+// brown   tommy   Donkey
+``` 
+When a function is invoked with the `new` keyword, the `this` keyword inside the function is bound to the new object
+being constructed. 
+
+## window Binding
+What if we want to invoke `sayName` function without specifying what the `this` keyword is? With out using `.call`, `.apply`, 
+`.bind` or the `new`. 
+
+```javascript
+let sayName = function(){
+    console.log('My name is ' + this.name);
+};
+
+let stacey = {
+    name: 'Stacy',
+    age: 25,
+};
+
+sayName(stacey);
+
+// My name is undefined 
+```
+`Undefined`. What is happening is if you invoke a function (`sayName`) that have a `.this` keyword, but that does not have any thing
+to the left of the dot (`sayName()`) then the `this` key word default to the `window` object. 
+
+`strict` + `this` => undefined
+
+```javascript
+let sayName = function(){
+    'use strict';
+    console.log(this);
+    console.log('My name is ' + this.name);
+};
+
+let stacey = {
+    name: 'Stacy',
+    age: 25,
+};
+
+sayName(stacey);
+
+/*
+undefined
+"error"
+"TypeError: Cannot read property 'name' of undefined
+    at sayName (anonymous.js:4:63)
+    at anonymous.js:12:1
+ */
+```
+
+global var + this => works 
+
+```javascript
+window.name = "Girma";
+
+let sayName = function(){
+    console.log('My name is ' + this.name);
+};
+
+let stacey = {
+    name: 'Stacy',
+    age: 25,
+};
+
+sayName(stacey);
+
+// "My name is Girma"
+```
+
+global var + `this` + `strict mode` => undefined
+
+```javascript
+window.name = "Girma";
+
+let sayName = function(){
+    'use strict';
+    console.log('My name is ' + this.name);
+};
+
+let stacey = {
+    name: 'Stacy',
+    age: 25,
+};
+
+sayName(stacey);
+
+/*
+Uncaught TypeError: Cannot read property 'name' of undefined
+    at sayName (<anonymous>:5:38)
+    at <anonymous>:13:1
+ */
+```
