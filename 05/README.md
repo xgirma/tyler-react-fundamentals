@@ -225,7 +225,7 @@ undefined
  */
 ```
 
-global var + this => works 
+global var + `this` => works 
 
 ```javascript
 window.name = "Girma";
@@ -244,7 +244,7 @@ sayName(stacey);
 // "My name is Girma"
 ```
 
-global var + `this` + `strict mode` => undefined
+global var + `this` + `strict` => undefined
 
 ```javascript
 window.name = "Girma";
