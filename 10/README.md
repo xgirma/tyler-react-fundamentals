@@ -72,9 +72,9 @@ take `the Route we are on` whatever that is, that can change later on, and appen
 
 If we inspect and look the `props` passed by React `Router` that gives us is shown below. 
 
-![match.url inside Battle component](/BattleTag.png "props =>  match -> url")
+<img width="399" alt="battletag" src="https://user-images.githubusercontent.com/5876481/32546133-e62119fe-c432-11e7-9520-5d4d88cbaa70.png">
 
-![match.url inside the Link component](/LinkTag.png "context => Router -> Route -> match -> url")
+<img width="384" alt="linktag" src="https://user-images.githubusercontent.com/5876481/32546159-f8486790-c432-11e7-96ca-110d82db2977.png">
 
 As you see above `match` has a `url` property on it, that is the property we use instead of hard coding `/battele`, if we
 decide to change the route in our application from `battel` to `war` for example, and we hard code `battle` this will break. 
@@ -113,6 +113,4 @@ class Results extends React.Component {
 }
 module.exports = Results;
 ```
-![this.props](/Props.png)
-
-
+<img width="572" alt="props" src="https://user-images.githubusercontent.com/5876481/32546166-025aef8c-c433-11e7-850f-51408e4cf939.png">
