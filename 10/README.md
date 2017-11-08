@@ -74,7 +74,11 @@ If we inspect and look the `props` passed by React `Router` that gives us is sho
 
 <img width="399" alt="battletag" src="https://user-images.githubusercontent.com/5876481/32546133-e62119fe-c432-11e7-9520-5d4d88cbaa70.png">
 
+Inspecting `Battle` component
+
 <img width="384" alt="linktag" src="https://user-images.githubusercontent.com/5876481/32546159-f8486790-c432-11e7-96ca-110d82db2977.png">
+
+Inspecting `Link` component
 
 As you see above `match` has a `url` property on it, that is the property we use instead of hard coding `/battele`, if we
 decide to change the route in our application from `battel` to `war` for example, and we hard code `battle` this will break. 
