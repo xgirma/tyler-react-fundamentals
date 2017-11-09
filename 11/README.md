@@ -190,7 +190,7 @@ function getUserData (player) {
         getRepos(player)
     ]).then(function (data) {
         let profile = data[0];
-        let repos = data[1]
+        let repos = data[1];
         
         return {
             profile: profile,
@@ -209,7 +209,7 @@ module.exports = {
 ```
  
 ## Conclusion
-What we have done is there is a lot of complex thing going on here so we try to break that complexity into function
+What we have done is there is a lot of complex thing going on here, so we try to break that complexity into function
 just as we have done with component before. Then now we can compose all of that complexity together. Now, when we call
-`battle` it is going to do a lot of thing, but we kind of encapsulate that into this `little micro functions` and the
-last thing we want to do is handle error. 
+`battle` it is going to do a lot of things, but we kind of encapsulate all of that into this `little micro functions` and the
+last thing we want to do is if there is an error and then go ahead and pass error to our handleError function. 
