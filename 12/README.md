@@ -230,7 +230,7 @@ between the two components.
 
 `Results` component
 
-<img width="1202" alt="screen shot 2017-11-10 at 2 11 13 am" src="https://user-images.githubusercontent.com/5876481/32653470-dbf8d85a-c5bc-11e7-9c63-86869c01fa31.png">
+<img width="1197" alt="screen shot 2017-11-10 at 2 24 41 am" src="https://user-images.githubusercontent.com/5876481/32653950-65844450-c5be-11e7-9f58-dcec0419b5f8.png">
 
 
 In the `PlayerPreview` we need `const React = require('react');` even if we do not use React, requiring React is 
