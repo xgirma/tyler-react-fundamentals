@@ -1,6 +1,6 @@
 # Building a Highly Reusable React Component
-We are going to make this component as reusable as possible, meaning we are going to push this to npm other developers are
-going to install it as well as use it in their application. 
+We are going to make this component as reusable as possible, meaning we are going to push this to npm and other developers are
+going to install and use it in their application. So it should be highly independent. 
 
 ```javascript
 const React = require('react');
@@ -20,7 +20,7 @@ class Loading extends React.Component {
 module.exports = Loading;
 ```
 All we need to do now is go ahead and manage what `this.state.text` is. And React will take care of updating the view 
-for us. 
+for us. Also pay attention to the `in-line style`. 
 
 ```javascript
 const React = require('react');
@@ -59,6 +59,8 @@ What if the person who use our component did want the word `Loading`? They might
 What we can say here is we want the text be whatever the `props.text` is, that way whoever using our text is go ahead and 
 specify as a `prop` but if they don't we want to default to `Loading`, using `defaultProps`.  
 
+> Loading.defaultProps = { text: 'Loading' }
+
 ```javascript
 const React = require('react');
 const PropTypes = require('prop-types');
@@ -75,7 +77,7 @@ class Loading extends React.Component {
         super(props);
 
         this.state = {
-            text: 'Loading'
+            text: props.text
         }
     }
 
@@ -100,7 +102,14 @@ Loading.defaultProps = {
 module.exports = Loading;
 ```
 
-Final !!!
+Finally, giving the loading text a bit of animation. 
+
+> componentDidMount
+
+> this.setState(function(previousState) {})
+
+> componentWillUnmount() { window.clearInterval(this.interval); }
+
 ```javascript
 const React = require('react');
 const PropTypes = require('prop-types');
@@ -137,7 +146,7 @@ class Loading extends React.Component {
                     }
                 })
             }
-        }.bind(this), this.props.speed)
+        }.bind(this), this.props.speed) // pay attention here
     }
 
     componentWillUnmount() {
@@ -166,6 +175,18 @@ Loading.defaultProps = {
 
 module.exports = Loading;
 ```
+Whenever you want to set a new state based on the previous state, the `first argument` that is going to be passed to the
+second function is going to be the `prevState`. 
+
+Without `componentWillUnmount() { window.clearInterval(this.interval); }` we will get the below error. Because what is happening is
+when our component mounts we set this interval, let say every 300 milli seconds, this function is going to run, until the
+user closes our app. This is not good, so what we need to do is, when this component un-mount, we need to remove `this.interval`
+listener. 
+
+The reason we did `this.interval` inside `componentWillUnmount()` we want to pass `window.clearInterval(this.interval);`. So 
+when our component is removed from the view, we call `window.clearInterval` with the name of listener we want to remove. 
+
+<img width="903" alt="screen shot 2017-11-12 at 4 54 27 pm" src="https://user-images.githubusercontent.com/5876481/32705540-6229fdb4-c7ca-11e7-8310-42db4b5c176c.png">
 
 Inside `Popular` component
 
