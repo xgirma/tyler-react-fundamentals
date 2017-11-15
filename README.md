@@ -40,3 +40,8 @@ Webpack will take our entry component and bundle our code.
 Babel a code transformer. JSX -> regular JavaScript.
 
 Axios for making AJAX request. 
+
+
+## Contents
+
+1. []
