@@ -44,7 +44,7 @@ Axios for making AJAX request.
 
 ## Contents
 
-01.[React Fundamental](https://github.com/xgirma/tyler-react-fundamentals/tree/develop/01)
+01. [React Fundamental](https://github.com/xgirma/tyler-react-fundamentals/tree/develop/01)
 
 02. [Setup](https://github.com/xgirma/tyler-react-fundamentals/tree/develop/02)
 
