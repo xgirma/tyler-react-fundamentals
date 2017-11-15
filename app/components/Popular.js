@@ -1,6 +1,7 @@
 const React = require('react');
 const PropTypes = require('prop-types');
 const api = require('./../utils/api');
+const Loading = require('./Loading');
 
 function SelectLanguage (props) {
     // console.log(this); // undefined
@@ -51,7 +52,7 @@ function RepoGrid (props) {
 
 RepoGrid.propTypes = {
     repos: PropTypes.array.isRequired,
-}
+};
 
 SelectLanguage.propTypes = {
     selectedLanguage: PropTypes.string.isRequired,
@@ -99,7 +100,7 @@ class Popular extends React.Component {
                 />
 
                 {!this.state.repos
-                    ? <p>Loading ...</p>
+                    ? <Loading text='Downloading' />
                     : <RepoGrid repos={this.state.repos} />}
             </div>
         );
